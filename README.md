@@ -1,4 +1,4 @@
 # rack-plugin-toolchain-cppcheck
-Generate Ubuntu Docker Image containing cppcheck.
+Generate Ubuntu Docker Image containing cppcheck for Rack.
 
-* ghcr.io/qno/rack-plugin-toolchain-cppcheck
+* ghcr.io/bloodbat/rack-plugin-toolchain-cppcheck
