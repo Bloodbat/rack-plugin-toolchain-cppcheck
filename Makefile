@@ -16,12 +16,11 @@ export JOBS :=
 export JOBS_CT_NG :=
 endif
 
-WGET := wget --continue
+WGET := wget -c
 UNTAR := tar -x -f
 UNZIP := unzip
 
-
-CPPCHECK_VERSION := 2.13.0
+CPPCHECK_VERSION := 2.16.0
 cppcheck := $(LOCAL_DIR)/cppcheck/bin/cppcheck
 cppcheck: $(cppcheck)
 $(cppcheck):
@@ -30,21 +29,18 @@ $(cppcheck):
 	cd cppcheck-$(CPPCHECK_VERSION) && mkdir build
 	cd cppcheck-$(CPPCHECK_VERSION)/build \
 		&& cmake .. \
-		-DUSE_MATCHCOMPILER=ON \
-		-DUSE_THREADS=ON \
+		-DUSE_MATCHCOMPILER=On \
+		-DUSE_THREADS=On \
 		-DCMAKE_INSTALL_PREFIX=$(LOCAL_DIR)/cppcheck \
 		&& cmake --build . -j \
 		&& cmake --install .
 	rm $(CPPCHECK_VERSION).tar.gz
 	rm -rf cppcheck-$(CPPCHECK_VERSION)
 
-
 # Docker helpers
 
-
 dep-ubuntu:
-	apt-get update
-	apt-get install -y --no-install-recommends \
+	sudo apt-get install --no-install-recommends \
 		ca-certificates \
 		git \
 		build-essential \
@@ -79,7 +75,7 @@ dep-ubuntu:
 		coreutils \
 		zstd \
 		markdown \
-		libarchive-tools
-
+		libarchive-tools \
+		gettext
 
 .NOTPARALLEL:
