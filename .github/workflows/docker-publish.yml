@@ -1,4 +1,4 @@
-name: Build Toolchain cppcheck Image
+name: Build Toolchain cppcheck Image for VCV Rack
 
 # on:
 #   push:
@@ -16,7 +16,7 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-  image-version-tag: 2.13.0
+  image-version-tag: 2.16.0
 
 jobs:
   build:
