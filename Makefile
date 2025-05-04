@@ -76,6 +76,8 @@ dep-ubuntu:
 		zstd \
 		markdown \
 		libarchive-tools \
-		gettext
+		gettext \
+		libgmp-dev \
+		libmpfr-dev
 
 .NOTPARALLEL:
