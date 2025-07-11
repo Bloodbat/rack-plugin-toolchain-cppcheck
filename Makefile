@@ -8,12 +8,9 @@ export PATH := $(LOCAL_DIR)/bin:$(PATH)
 # Note: Plugin build uses `$(MAKE)` to inherit `-j` argument from command line.
 ifdef JOBS
 export JOBS := $(JOBS)
-# Define number of jobs for crosstool-ng (uses different argument format)
-export JOBS_CT_NG := .$(JOBS)
 else
 # If `JOBS` is not specified, default to max number of jobs.
 export JOBS :=
-export JOBS_CT_NG :=
 endif
 
 WGET := wget -c
